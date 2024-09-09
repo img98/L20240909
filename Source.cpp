@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 class Map
@@ -43,15 +44,23 @@ public:
 		{
 		case 'w':
 			YPosition--;
+			YPosition = max(1, YPosition);
+			YPosition = min(YPosition, 8);
 			break;
 		case 'a':
 			XPosition--;
+			XPosition = max(1, XPosition);
+			XPosition = min(XPosition, 8);
 			break;
 		case 's':
 			YPosition++;
+			YPosition = max(1, YPosition);
+			YPosition = min(YPosition, 8);
 			break;
 		case 'd':
 			XPosition++;
+			XPosition = max(1, XPosition);
+			XPosition = min(XPosition, 8);
 			break;
 		default:
 			break;
@@ -121,7 +130,7 @@ public:
 
 int main()
 {
-	
+
 	GameManager* Game = new GameManager;
 	Game->PlayerLogIn();
 
